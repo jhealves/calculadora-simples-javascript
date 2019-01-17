@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <style>
+        h1{
+            text-align: center;
+            margin: 0;
+        }
+        .calculadora{
+            margin: 0 auto;
+            width: 212px;
+            border: 1px solid #000;
+            padding: 2px;
+            background: orangered;
+        }
+        .btn{
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            color: orangered;
+            margin-top: 3px;
+            font-size: 25px;
+        }
+        .visor{
+            font-size: 1.5em;
+            color:lightskyblue;
+        }
+    </style>
+    <script>
+        // funçao resposavel por limpa tudo do visor
+        function limpar(){
+            document.getElementById("visor").value = "";
+        }
+        // funçao responsavel por preencher numeros e caracteres
+        function preencher(valor){
+            document.getElementById("visor").value += valor;
+        }
+        // funçao responsavel por fazer os calculos
+            function calcular(){
+                var resultado = 0;
+                resultado = document.getElementById("visor").value;
+                // limpando o visor
+                document.getElementById("visor").value = "";
+                // recebendo o valor do calculo
+                document.getElementById("visor").value = eval(resultado);
+            }
+    </script>
+</head>
+<body>
+    <div class="calculadora">
+        <h1>Calculadora</h1>
+        <input type="text" id="visor" size="13" class="visor"  autofocus="true">
+        <br>
+        <button class="btn" value="1" onclick="preencher(1)">1</button>
+        <button class="btn" value="2" onclick="preencher(2)">2</button>
+        <button class="btn" value="3" onclick="preencher(3)">3</button>
+        <button class="btn" value="/" onclick="preencher('/')">/</button>
+        <br>
+        <button class="btn" value="4" onclick="preencher(4)">4</button>
+        <button class="btn" value="5" onclick="preencher(5)">5</button>
+        <button class="btn" value="6" onclick="preencher(6)">6</button>
+        <button class="btn" value="*" onclick="preencher('*')">x</button>
+        <br>
+        <button class="btn" value="7" onclick="preencher(7)">7</button>
+        <button class="btn" value="8" onclick="preencher(8)">8</button>
+        <button class="btn" value="9" onclick="preencher(9)">9</button>
+        <button class="btn" value="+" onclick="preencher('+')">+</button>
+        <br>
+        <button class="btn" value="0" onclick="preencher(0)">0</button>
+        <button class="btn" value="." onclick="preencher('.')">.</button>
+        <button class="btn" value="C" onclick="limpar()">C</button>
+        <button class="btn" value="-" onclick="preencher('-')">-</button>
+        <br>
+        <button class="btn" value="%" onclick="preencher('%')">%</button>
+        <button class="btn" value="(" onclick="preencher('(')">(</button>
+        <button class="btn" value=")" onclick="limpar(')')">)</button>
+        <button class="btn" value="=" onclick="calcular()">=</button>
+    </div>
+</body>
+</html>
